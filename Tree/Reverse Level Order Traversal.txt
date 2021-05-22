@@ -1,0 +1,26 @@
+//https://practice.geeksforgeeks.org/problems/reverse-level-order-traversal/1
+
+vector<int> reverseLevelOrder(Node *root)
+{
+   vector<int>ans;
+        queue<Node*>a;
+        a.push(root);
+        while(a.size()){
+            Node* first=a.front();
+            ans.push_back(first->data);
+            a.pop();
+            if(first->right!=NULL){
+                a.push(first->right);
+            }
+            if(first->left!=NULL){
+                a.push(first->left);
+            }
+           
+            
+        }
+       reverse(ans.begin(),ans.end());
+        return ans;
+ 
+ 
+    // code here
+}
