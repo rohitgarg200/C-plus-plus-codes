@@ -1,0 +1,25 @@
+//https://practice.geeksforgeeks.org/problems/row-with-max-1s0023/1#
+int rowWithMax1s(vector<vector<int> > arr, int n, int m) {
+	    // code here
+	    int temp=-1;
+	    for(int i=0;i<n;i++){
+	        if(arr[i][m-1]==1){
+	            temp=i;
+	            break;
+	        }
+	        
+	    }
+	    int ans=temp;
+	    for(int j=m-1;j>=0;j--){
+	        if(temp<n && arr[temp][j]!=1){
+	            while(temp<n && arr[temp][j]!=1){
+	                temp++;
+	            }
+	            if(temp<n){
+	                ans=temp;
+	            }
+	        }
+	    }
+	    return ans;
+	    
+	}

@@ -1,0 +1,17 @@
+//https://practice.geeksforgeeks.org/problems/longest-repeating-subsequence2004/1#
+
+int LongestRepeatingSubsequence(string str){
+		    // Code here
+		    vector<vector<int>>a(str.size()+1,vector<int>(str.size()+1,0));
+		    for(int i=1;i<=str.size();i++){
+		        for(int j=1;j<=str.size();j++){
+		            if(str[i-1]==str[j-1] && i!=j){
+		                a[i][j]=a[i-1][j-1]+1;
+		            }else{
+		                a[i][j]=max(a[i-1][j],a[i][j-1]);
+		            }
+		        }
+		        
+		    }
+		    return a[str.size()][str.size()];
+		}

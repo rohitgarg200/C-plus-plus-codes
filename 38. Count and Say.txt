@@ -1,0 +1,26 @@
+//https://leetcode.com/problems/count-and-say/
+
+class Solution {
+public:
+    string countAndSay(int n) {
+        string t="1";
+        for(int i=1;i<n;i++){
+            string ans="";
+            int start=0;
+            while(start<t.size()){
+                char temp=t[start];
+                start++;
+                int count=1;
+                while(start<t.size() && temp==t[start]){
+                    start++;
+                    count++;
+                }
+                ans+=to_string(count);
+              //  cout<<to_string(count)<<endl;
+                ans+=temp;
+            }
+            t=ans;
+        }
+        return t;
+    }
+};
